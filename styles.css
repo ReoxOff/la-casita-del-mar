@@ -791,15 +791,17 @@ h1, h2, h3 {
 }
 
 .form-field-rating {
-  border: 0;
-  padding: 0;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  background-color: var(--clr-bg);
+  padding: 14px 16px 10px;
 }
 
 .rating-control {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin: 4px 0 2px;
+  gap: 16px;
+  margin: 6px 0 4px;
 }
 
 .star-input {
@@ -807,15 +809,16 @@ h1, h2, h3 {
   position: relative;
   display: inline-block;
   width: max-content;
-  font-size: 1.9rem;
+  font-size: 2rem;
   line-height: 1;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   user-select: none;
   pointer-events: none;
+  filter: drop-shadow(0 1px 1px rgba(63, 74, 61, 0.08));
 }
 
 .star-input-track {
-  color: #D9D3C7;
+  color: #DED8CC;
 }
 
 .star-input-fill {
@@ -827,19 +830,57 @@ h1, h2, h3 {
   overflow: hidden;
   white-space: nowrap;
   color: #C29B53;
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.star-input.is-popping {
+  animation: star-pop 0.3s ease;
+}
+
+@keyframes star-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+.rating-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1.2;
 }
 
 .rating-value {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
+  color: var(--clr-primary-dark);
+}
+
+.rating-total {
+  font-size: 0.78rem;
+  font-weight: 500;
   color: var(--clr-text-muted);
+}
+
+.rating-word {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #A8863F;
+}
+
+.rating-slider {
+  position: relative;
+  margin-top: 2px;
 }
 
 .rating-range {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 32px;
+  height: 34px;
   margin: 4px 0 0;
   padding: 0;
   background: transparent;
@@ -847,45 +888,84 @@ h1, h2, h3 {
 }
 
 .rating-range::-webkit-slider-runnable-track {
-  height: 8px;
+  height: 10px;
   border-radius: 999px;
-  background: linear-gradient(
-    90deg,
-    #C29B53 0 calc(var(--rating, 5) / 5 * 100%),
-    #E7E2D8 calc(var(--rating, 5) / 5 * 100%) 100%
-  );
+  background-color: #EDE8DE;
+  background-image: linear-gradient(90deg, #D9B76E 0%, #C29B53 100%);
+  background-repeat: no-repeat;
+  background-size: calc(var(--rating, 5) / 5 * 100%) 100%;
+  box-shadow: inset 0 1px 2px rgba(63, 74, 61, 0.12);
 }
 
 .rating-range::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   margin-top: -8px;
   border-radius: 50%;
   border: 3px solid #C29B53;
   background-color: var(--clr-surface);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 3px 8px rgba(63, 74, 61, 0.22), 0 0 0 4px rgba(194, 155, 83, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.rating-range:hover::-webkit-slider-thumb {
+  transform: scale(1.08);
+}
+
+.rating-range:active::-webkit-slider-thumb {
+  transform: scale(1.14);
+  box-shadow: 0 2px 6px rgba(63, 74, 61, 0.28), 0 0 0 6px rgba(194, 155, 83, 0.18);
 }
 
 .rating-range::-moz-range-track {
-  height: 8px;
+  height: 10px;
   border-radius: 999px;
-  background-color: #E7E2D8;
+  background-color: #EDE8DE;
+  box-shadow: inset 0 1px 2px rgba(63, 74, 61, 0.12);
 }
 
 .rating-range::-moz-range-progress {
-  height: 8px;
+  height: 10px;
   border-radius: 999px;
-  background-color: #C29B53;
+  background-image: linear-gradient(90deg, #D9B76E 0%, #C29B53 100%);
 }
 
 .rating-range::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border: 3px solid #C29B53;
   border-radius: 50%;
   background-color: var(--clr-surface);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 3px 8px rgba(63, 74, 61, 0.22), 0 0 0 4px rgba(194, 155, 83, 0.12);
+  transition: transform 0.15s ease;
+}
+
+.rating-range:hover::-moz-range-thumb {
+  transform: scale(1.08);
+}
+
+.rating-ticks {
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  top: 50%;
+  transform: translateY(8px);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.rating-ticks span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #D5CEC1;
+  transition: background-color 0.15s ease;
+}
+
+.rating-ticks span.is-on {
+  background-color: #C29B53;
 }
 
 .rating-range:focus-visible {

@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=8">
   <script defer src="config.js?v=1"></script>
-  <script defer src="main.js?v=5"></script>
+  <script defer src="main.js?v=8"></script>
 
   <script type="application/ld+json">
   {
@@ -491,9 +491,18 @@
           <span class="star-input-track">★★★★★</span>
           <span class="star-input-fill">★★★★★</span>
         </div>
-        <output class="rating-value" id="ratingValue" for="ratingRange">5/5</output>
+        <div class="rating-summary">
+          <output class="rating-value" id="ratingValue" for="ratingRange"><span id="ratingNumber">5</span><span class="rating-total">/5</span></output>
+          <span class="rating-word" id="ratingWord">Excelente</span>
+        </div>
       </div>
-      <input class="rating-range" id="ratingRange" name="rating" type="range" min="0.5" max="5" step="0.5" value="5" aria-label="Puntuación" data-i18n-label="rev_form_rating">
+      <div class="rating-slider">
+        <input class="rating-range" id="ratingRange" name="rating" type="range" min="0.5" max="5" step="0.5" value="5" aria-label="Puntuación" data-i18n-label="rev_form_rating">
+        <div class="rating-ticks" id="ratingTicks" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
     </fieldset>
 
     <div class="form-field">

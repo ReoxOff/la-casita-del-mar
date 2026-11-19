@@ -93,6 +93,11 @@ const translations = {
     rev_form_error: "No se ha podido enviar la opinión. Inténtalo de nuevo en unos minutos.",
     rev_form_wa: "Se ha abierto WhatsApp con tu opinión lista para enviar.",
     rev_form_incomplete: "Completa los campos obligatorios.",
+    rev_word_5: "Excelente",
+    rev_word_4: "Muy bueno",
+    rev_word_3: "Bien",
+    rev_word_2: "Regular",
+    rev_word_1: "Mejorable",
     faq_tag: "Información Práctica",
     faq_title: "Preguntas frecuentes",
     faq_desc: "Todo lo que necesitas saber para planificar tu estancia con total tranquilidad.",
@@ -205,6 +210,11 @@ const translations = {
     rev_form_error: "Your review could not be sent. Please try again in a few minutes.",
     rev_form_wa: "WhatsApp has opened with your review ready to send.",
     rev_form_incomplete: "Please fill in the required fields.",
+    rev_word_5: "Excellent",
+    rev_word_4: "Very good",
+    rev_word_3: "Good",
+    rev_word_2: "Fair",
+    rev_word_1: "Poor",
     faq_tag: "Practical Info",
     faq_title: "Frequently asked questions",
     faq_desc: "Everything you need to know to plan your stay with complete peace of mind.",
@@ -317,6 +327,11 @@ const translations = {
     rev_form_error: "Die Bewertung konnte nicht gesendet werden. Bitte versuchen Sie es in einigen Minuten erneut.",
     rev_form_wa: "WhatsApp wurde mit Ihrer Bewertung zum Senden geöffnet.",
     rev_form_incomplete: "Bitte füllen Sie die Pflichtfelder aus.",
+    rev_word_5: "Ausgezeichnet",
+    rev_word_4: "Sehr gut",
+    rev_word_3: "Gut",
+    rev_word_2: "Befriedigend",
+    rev_word_1: "Schwach",
     faq_tag: "Praktische Infos",
     faq_title: "Häufig gestellte Fragen",
     faq_desc: "Alles Wichtige für eine sorgenfreie Urlaubsplanung.",
@@ -429,6 +444,11 @@ const translations = {
     rev_form_error: "L'avis n'a pas pu être envoyé. Réessayez dans quelques minutes.",
     rev_form_wa: "WhatsApp s'est ouvert avec votre avis prêt à envoyer.",
     rev_form_incomplete: "Veuillez remplir les champs obligatoires.",
+    rev_word_5: "Excellent",
+    rev_word_4: "Très bien",
+    rev_word_3: "Bien",
+    rev_word_2: "Moyen",
+    rev_word_1: "À améliorer",
     faq_tag: "Infos Pratiques",
     faq_title: "Questions fréquentes",
     faq_desc: "Tout ce qu'il faut savoir pour préparer votre séjour en toute sérénité.",
@@ -543,7 +563,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const ratingRange = document.getElementById('ratingRange');
   const ratingStars = document.getElementById('ratingStars');
-  const ratingValue = document.getElementById('ratingValue');
+  const ratingNumber = document.getElementById('ratingNumber');
+  const ratingWord = document.getElementById('ratingWord');
+  const ratingTicks = document.getElementById('ratingTicks');
   const RATING_MIN = 0.5;
   const RATING_MAX = 5;
   let currentRating = 5;
@@ -571,14 +593,33 @@ document.addEventListener('DOMContentLoaded', () => {
       ratingStars.style.setProperty('--rating', String(clamped));
     }
 
-    if (ratingValue) {
-      ratingValue.textContent = `${formatRatingValue(clamped)}/5`;
+    if (ratingNumber) {
+      ratingNumber.textContent = formatRatingValue(clamped);
+    }
+
+    if (ratingWord) {
+      const bucket = Math.max(1, Math.min(5, Math.floor(clamped)));
+      ratingWord.textContent = currentDict[`rev_word_${bucket}`] || '';
+    }
+
+    if (ratingTicks) {
+      const filledTicks = Math.round(clamped * 2);
+      Array.prototype.forEach.call(ratingTicks.children, (tick, index) => {
+        tick.classList.toggle('is-on', index < filledTicks);
+      });
     }
   };
 
   if (ratingRange) {
     ratingRange.addEventListener('input', () => {
       renderRating(parseFloat(ratingRange.value));
+    });
+
+    ratingRange.addEventListener('change', () => {
+      if (!ratingStars) return;
+      ratingStars.classList.remove('is-popping');
+      void ratingStars.offsetWidth;
+      ratingStars.classList.add('is-popping');
     });
   }
 
