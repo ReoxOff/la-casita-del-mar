@@ -62,6 +62,9 @@ const translations = {
     rev_tag: "Testimonios",
     rev_title: "Experiencias de nuestros huéspedes",
     rev_desc: "Opiniones reales de familias y grupos de distintos países que han disfrutado de sus vacaciones con nosotros.",
+    rev_count_label: "{count} opiniones verificadas",
+    rev_prev: "Anterior",
+    rev_next: "Siguiente",
     rev_type_family: "Familia",
     rev_type_couple: "Pareja",
     rev_type_friends: "Grupo de amigos",
@@ -179,6 +182,9 @@ const translations = {
     rev_tag: "Testimonials",
     rev_title: "Guest experiences",
     rev_desc: "Real reviews from families and groups from different countries who have enjoyed their holidays with us.",
+    rev_count_label: "{count} verified reviews",
+    rev_prev: "Previous",
+    rev_next: "Next",
     rev_type_family: "Family",
     rev_type_couple: "Couple",
     rev_type_friends: "Group of friends",
@@ -296,6 +302,9 @@ const translations = {
     rev_tag: "Erfahrungen",
     rev_title: "Das sagen unsere Gäste",
     rev_desc: "Echte Bewertungen von Familien und Gruppen aus verschiedenen Ländern, die ihren Urlaub bei uns verbracht haben.",
+    rev_count_label: "{count} geprüfte Bewertungen",
+    rev_prev: "Zurück",
+    rev_next: "Weiter",
     rev_type_family: "Familie",
     rev_type_couple: "Paar",
     rev_type_friends: "Freundesgruppe",
@@ -413,6 +422,9 @@ const translations = {
     rev_tag: "Témoignages",
     rev_title: "L'avis de nos voyageurs",
     rev_desc: "Témoignages authentiques de familles et groupes de différents pays ayant séjourné chez nous.",
+    rev_count_label: "{count} avis vérifiés",
+    rev_prev: "Précédent",
+    rev_next: "Suivant",
     rev_type_family: "Famille",
     rev_type_couple: "Couple",
     rev_type_friends: "Groupe d'amis",
@@ -471,12 +483,23 @@ const translations = {
 
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('siteHeader');
+  const scrollProgress = document.getElementById('scrollProgress');
   const menuToggle = document.querySelector('.menu-toggle');
   const navOverlay = document.getElementById('navOverlay');
   const navLinks = document.querySelectorAll('.nav-link');
   const yearSpan = document.getElementById('currentYear');
   const langButtons = document.querySelectorAll('.lang-btn');
   const waLinks = document.querySelectorAll('.wa-link');
+
+  const reviewsViewport = document.getElementById('reviewsViewport');
+  const reviewsTrack = document.getElementById('reviewsTrack');
+  const reviewsPrev = document.getElementById('reviewsPrev');
+  const reviewsNext = document.getElementById('reviewsNext');
+  const reviewsCounter = document.getElementById('reviewsCounter');
+  const reviewsProgressFill = document.getElementById('reviewsProgressFill');
+  const reviewsAvgScore = document.getElementById('reviewsAvgScore');
+  const reviewsAvgStars = document.getElementById('reviewsAvgStars');
+  const reviewsCount = document.getElementById('reviewsCount');
 
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
@@ -517,48 +540,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (previous && options.some(item => item.value === previous)) {
       select.value = previous;
     }
-  };
-
-  const refreshReviewForm = (lang, dict) => {
-    const countrySelect = document.getElementById('reviewCountry');
-    const monthSelect = document.getElementById('reviewMonth');
-    const staySelect = document.getElementById('reviewStayType');
-    const languageSelect = document.getElementById('reviewLang');
-
-    if (countrySelect) {
-      const countries = countryCodes
-        .map(code => ({ value: code, label: countryName(code, lang) }))
-        .sort((a, b) => a.label.localeCompare(b.label, lang));
-      fillOptions(countrySelect, [{ value: '', label: dict.rev_form_select }].concat(countries));
-    }
-
-    if (monthSelect) {
-      const months = [];
-      for (let month = 1; month <= 12; month += 1) {
-        months.push({
-          value: String(month),
-          label: capitalize(new Intl.DateTimeFormat(lang, { month: 'long' }).format(new Date(2024, month - 1, 15)))
-        });
-      }
-      fillOptions(monthSelect, months);
-    }
-
-    if (staySelect) {
-      fillOptions(staySelect, [
-        { value: '', label: dict.rev_form_select },
-        { value: 'family', label: dict.rev_type_family },
-        { value: 'couple', label: dict.rev_type_couple },
-        { value: 'friends', label: dict.rev_type_friends },
-        { value: 'single', label: dict.rev_type_single },
-        { value: 'other', label: dict.rev_type_other }
-      ]);
-    }
-
-    if (languageSelect && !reviewLanguageTouched) {
-      languageSelect.value = lang;
-    }
-
-    renderRating(currentRating);
   };
 
   const ratingRange = document.getElementById('ratingRange');
@@ -623,8 +604,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const refreshReviewForm = (lang, dict) => {
+    const countrySelect = document.getElementById('reviewCountry');
+    const monthSelect = document.getElementById('reviewMonth');
+    const staySelect = document.getElementById('reviewStayType');
+    const languageSelect = document.getElementById('reviewLang');
+
+    if (countrySelect) {
+      const countries = countryCodes
+        .map(code => ({ value: code, label: countryName(code, lang) }))
+        .sort((a, b) => a.label.localeCompare(b.label, lang));
+      fillOptions(countrySelect, [{ value: '', label: dict.rev_form_select }].concat(countries));
+    }
+
+    if (monthSelect) {
+      const months = [];
+      for (let month = 1; month <= 12; month += 1) {
+        months.push({
+          value: String(month),
+          label: capitalize(new Intl.DateTimeFormat(lang, { month: 'long' }).format(new Date(2024, month - 1, 15)))
+        });
+      }
+      fillOptions(monthSelect, months);
+    }
+
+    if (staySelect) {
+      fillOptions(staySelect, [
+        { value: '', label: dict.rev_form_select },
+        { value: 'family', label: dict.rev_type_family },
+        { value: 'couple', label: dict.rev_type_couple },
+        { value: 'friends', label: dict.rev_type_friends },
+        { value: 'single', label: dict.rev_type_single },
+        { value: 'other', label: dict.rev_type_other }
+      ]);
+    }
+
+    if (languageSelect && !reviewLanguageTouched) {
+      languageSelect.value = lang;
+    }
+
+    renderRating(currentRating);
+  };
+
   const updateReviewMeta = (lang, dict) => {
-    const capitalize = (value) => value.charAt(0).toUpperCase() + value.slice(1);
     let monthFormatter = null;
     let regionNames = null;
 
@@ -664,13 +686,231 @@ document.addEventListener('DOMContentLoaded', () => {
         numberFormatter = new Intl.NumberFormat(lang, { minimumFractionDigits: 0, maximumFractionDigits: 1 });
       } catch (e) {}
 
-      document.querySelectorAll('.reviews-grid .rating').forEach(el => {
+      document.querySelectorAll('#reviewsTrack .rating').forEach(el => {
         const rating = parseFloat(el.getAttribute('data-review-rating')) || 5;
         const formatted = numberFormatter ? numberFormatter.format(rating) : String(rating);
         el.setAttribute('aria-label', dict.rev_rating.replace('{rating}', formatted));
       });
     }
   };
+
+  const updateReviewStats = () => {
+    if (!reviewsTrack) return;
+    const ratings = Array.from(reviewsTrack.querySelectorAll('.rating[data-review-rating]'))
+      .map(el => parseFloat(el.getAttribute('data-review-rating')))
+      .filter(n => !Number.isNaN(n));
+
+    if (!ratings.length) return;
+    const avg = ratings.reduce((acc, n) => acc + n, 0) / ratings.length;
+    const roundedAvg = Math.round(avg * 10) / 10;
+
+    if (reviewsAvgScore) {
+      try {
+        reviewsAvgScore.textContent = new Intl.NumberFormat(currentLangCode, {
+          minimumFractionDigits: 1,
+          maximumFractionDigits: 1
+        }).format(roundedAvg);
+      } catch (e) {
+        reviewsAvgScore.textContent = roundedAvg.toFixed(1);
+      }
+    }
+
+    if (reviewsAvgStars) {
+      reviewsAvgStars.style.setProperty('--rating', String(roundedAvg));
+    }
+
+    if (reviewsCount) {
+      const template = currentDict.rev_count_label || '{count}';
+      reviewsCount.textContent = template.replace('{count}', String(ratings.length));
+    }
+  };
+
+  const pad2 = (n) => String(n).padStart(2, '0');
+
+  let sliderMetrics = { total: 0, maxScroll: 0, step: 384 };
+  let cachedDocHeight = 0;
+  let scrollRaf = 0;
+
+  const updateDocHeight = () => {
+    cachedDocHeight = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  };
+
+  const measureReviewsSlider = () => {
+    if (!reviewsViewport || !reviewsTrack) return;
+    const cards = reviewsTrack.querySelectorAll('.review-card');
+    const total = cards.length;
+    if (!total) return;
+    const firstCard = cards[0];
+    const firstWidth = firstCard ? firstCard.offsetWidth : 0;
+    const clientWidth = reviewsViewport.clientWidth;
+    /* Si la sección aún no tiene tamaño (pestaña oculta o layout pendiente),
+       no se sobrescriben unas medidas válidas. */
+    if (!firstWidth || !clientWidth) return;
+    const gap = parseFloat(getComputedStyle(reviewsTrack).gap) || 24;
+    const step = firstWidth + gap;
+    const maxScroll = Math.max(0, reviewsViewport.scrollWidth - clientWidth);
+    sliderMetrics = { total, maxScroll, step };
+  };
+
+  let lastRenderedIndex = -1;
+  let lastPrevDisabled = null;
+  let lastNextDisabled = null;
+
+  const updateReviewsSliderUI = () => {
+    if (!reviewsViewport || !sliderMetrics.total) return;
+    const { total, maxScroll, step } = sliderMetrics;
+    const currentScroll = reviewsViewport.scrollLeft;
+    const progress = maxScroll > 0 ? Math.min(1, Math.max(0, currentScroll / maxScroll)) : 1;
+
+    const currentIndex = maxScroll > 0 && currentScroll >= maxScroll - 8
+      ? total
+      : Math.min(total, Math.max(1, Math.round(currentScroll / step) + 1));
+
+    if (reviewsCounter && currentIndex !== lastRenderedIndex) {
+      lastRenderedIndex = currentIndex;
+      reviewsCounter.textContent = `${pad2(currentIndex)} / ${pad2(total)}`;
+    }
+
+    if (reviewsProgressFill) {
+      const minScale = Math.max(0.15, 1 / total);
+      const scale = minScale + progress * (1 - minScale);
+      reviewsProgressFill.style.transform = `scaleX(${scale})`;
+    }
+
+    const prevDisabled = currentScroll <= 4;
+    const nextDisabled = maxScroll <= 4 || currentScroll >= maxScroll - 4;
+
+    if (reviewsPrev && prevDisabled !== lastPrevDisabled) {
+      lastPrevDisabled = prevDisabled;
+      reviewsPrev.disabled = prevDisabled;
+    }
+
+    if (reviewsNext && nextDisabled !== lastNextDisabled) {
+      lastNextDisabled = nextDisabled;
+      reviewsNext.disabled = nextDisabled;
+    }
+  };
+
+  const syncReviewsSlider = () => {
+    measureReviewsSlider();
+    lastRenderedIndex = -1;
+    lastPrevDisabled = null;
+    lastNextDisabled = null;
+    updateReviewsSliderUI();
+  };
+
+  const scrollReviewsBy = (direction) => {
+    if (!reviewsViewport) return;
+    reviewsViewport.scrollBy({ left: sliderMetrics.step * direction, behavior: 'smooth' });
+  };
+
+  if (reviewsPrev) reviewsPrev.addEventListener('click', () => scrollReviewsBy(-1));
+  if (reviewsNext) reviewsNext.addEventListener('click', () => scrollReviewsBy(1));
+
+  if (reviewsViewport) {
+    let sliderRaf = 0;
+    reviewsViewport.addEventListener('scroll', () => {
+      if (sliderRaf) return;
+      sliderRaf = requestAnimationFrame(() => {
+        updateReviewsSliderUI();
+        sliderRaf = 0;
+      });
+    }, { passive: true });
+
+    reviewsViewport.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        scrollReviewsBy(1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        scrollReviewsBy(-1);
+      }
+    });
+
+    let isDown = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let targetScrollLeft = 0;
+    let dragRaf = 0;
+
+    reviewsViewport.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      isDown = true;
+      startX = e.clientX;
+      startScrollLeft = reviewsViewport.scrollLeft;
+      targetScrollLeft = startScrollLeft;
+      reviewsViewport.classList.add('is-dragging');
+      reviewsViewport.setPointerCapture(e.pointerId);
+    });
+
+    reviewsViewport.addEventListener('pointermove', (e) => {
+      if (!isDown) return;
+      targetScrollLeft = startScrollLeft - (e.clientX - startX) * 1.1;
+      if (dragRaf) return;
+      dragRaf = requestAnimationFrame(() => {
+        reviewsViewport.scrollLeft = targetScrollLeft;
+        dragRaf = 0;
+      });
+    });
+
+    const endDrag = (e) => {
+      if (!isDown) return;
+      isDown = false;
+      reviewsViewport.classList.remove('is-dragging');
+      if (reviewsViewport.hasPointerCapture(e.pointerId)) {
+        reviewsViewport.releasePointerCapture(e.pointerId);
+      }
+    };
+
+    reviewsViewport.addEventListener('pointerup', endDrag);
+    reviewsViewport.addEventListener('pointercancel', endDrag);
+  }
+
+  const renderScrollState = () => {
+    const scrollTop = window.scrollY;
+    header.classList.toggle('scrolled', scrollTop > 40);
+    if (scrollProgress && cachedDocHeight > 0) {
+      const ratio = Math.min(1, Math.max(0, scrollTop / cachedDocHeight));
+      scrollProgress.style.transform = `scaleX(${ratio})`;
+    }
+    scrollRaf = 0;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (scrollRaf) return;
+    scrollRaf = requestAnimationFrame(renderScrollState);
+  }, { passive: true });
+
+  let resizeTimer = 0;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      updateDocHeight();
+      syncReviewsSlider();
+      renderScrollState();
+    }, 120);
+  }, { passive: true });
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('toggle', updateDocHeight);
+  });
+
+  updateDocHeight();
+  syncReviewsSlider();
+  renderScrollState();
+
+  window.addEventListener('load', () => {
+    updateDocHeight();
+    syncReviewsSlider();
+    renderScrollState();
+  }, { once: true });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) return;
+    updateDocHeight();
+    syncReviewsSlider();
+    renderScrollState();
+  });
 
   const applyLanguage = (lang) => {
     const dict = translations[lang] || translations.es;
@@ -701,6 +941,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updateReviewMeta(lang, dict);
+    updateReviewStats();
     refreshReviewForm(lang, dict);
 
     const encodedMsg = encodeURIComponent(dict.wa_message);
@@ -895,8 +1136,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = document.createElement('blockquote');
     card.className = 'review-card';
 
-    const header = document.createElement('header');
-    header.className = 'review-meta';
+    const headerEl = document.createElement('header');
+    headerEl.className = 'review-meta';
 
     const avatar = document.createElement('span');
     avatar.className = 'avatar-fallback';
@@ -914,9 +1155,9 @@ document.addEventListener('DOMContentLoaded', () => {
     country.setAttribute('data-review-country', row.country || '');
     country.textContent = countryName(row.country, currentLangCode);
 
-    info.append(name, country, buildRatingElement(Number(row.rating) || 5));
-    header.append(avatar, info);
-    card.append(header);
+    info.append(name, country);
+    headerEl.append(avatar, info, buildRatingElement(Number(row.rating) || 5));
+    card.append(headerEl);
 
     if (row.title) {
       const title = document.createElement('p');
@@ -943,7 +1184,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const loadApprovedReviews = async () => {
-    if (!reviewsApiReady) return;
+    if (!reviewsApiReady || !reviewsTrack) return;
     try {
       const response = await fetch(
         `${supabaseUrl}/rest/v1/reviews?select=name,country,rating,title,body,review_lang,stay_type,nights,month,created_at&approved=eq.true&order=created_at.desc&limit=30`,
@@ -951,16 +1192,22 @@ document.addEventListener('DOMContentLoaded', () => {
       );
       if (!response.ok) return;
       const rows = await response.json();
-      const grid = document.querySelector('.reviews-grid');
-      if (!grid || !Array.isArray(rows) || rows.length === 0) return;
-      rows.forEach(row => grid.appendChild(buildReviewCard(row)));
+      if (!Array.isArray(rows) || rows.length === 0) return;
+      rows.forEach(row => reviewsTrack.appendChild(buildReviewCard(row)));
       updateReviewMeta(currentLangCode, currentDict);
-    } catch (error) {
-      /* si falla la carga, se mantienen las reseñas locales */
-    }
+      updateReviewStats();
+      syncReviewsSlider();
+      updateDocHeight();
+    } catch (error) {}
   };
 
   loadApprovedReviews();
+
+  document.querySelectorAll('.features-grid, .experience-grid, .gallery-grid').forEach(group => {
+    group.querySelectorAll('.animate-fade').forEach((el, idx) => {
+      el.style.setProperty('--reveal-delay', `${Math.min(idx % 3, 2) * 90}ms`);
+    });
+  });
 
   const fadeObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -975,12 +1222,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelectorAll('.animate-fade').forEach(el => fadeObserver.observe(el));
-
-  const handleScroll = () => {
-    header.classList.toggle('scrolled', window.scrollY > 40);
-  };
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
 
   const toggleMenu = (forceClose = false) => {
     if (!menuToggle) return;
@@ -1013,6 +1254,11 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.forEach(link => {
           link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
         });
+
+        /* Las secciones usan content-visibility: al renderizarse cambia el alto
+           del documento, así que se recalculan las medidas necesarias. */
+        if (id === 'opiniones') syncReviewsSlider();
+        updateDocHeight();
       }
     });
   }, {
@@ -1041,16 +1287,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxCaption = document.getElementById('lightboxCaption');
   const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
   const galleryCards = document.querySelectorAll('.gallery-card');
+  const galleryList = Array.from(galleryCards);
+  let activeGalleryIndex = 0;
 
-  const openLightbox = (card) => {
+  const showLightboxAt = (index) => {
+    if (!galleryList.length || !lightbox) return;
+    activeGalleryIndex = (index + galleryList.length) % galleryList.length;
+    const card = galleryList[activeGalleryIndex];
     const img = card.querySelector('img');
     const caption = card.querySelector('.gallery-caption');
-    if (!img || !lightbox) return;
+    if (!img) return;
 
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
     lightboxCaption.textContent = caption ? caption.textContent : img.alt;
+  };
+
+  const openLightbox = (card) => {
+    const idx = galleryList.indexOf(card);
+    showLightboxAt(idx >= 0 ? idx : 0);
     lightbox.classList.add('active');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.classList.add('menu-open');
@@ -1075,6 +1333,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxPrev) lightboxPrev.addEventListener('click', () => showLightboxAt(activeGalleryIndex - 1));
+  if (lightboxNext) lightboxNext.addEventListener('click', () => showLightboxAt(activeGalleryIndex + 1));
+
   if (lightbox) {
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) closeLightbox();
@@ -1085,6 +1346,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       closeLightbox();
       toggleMenu(true);
+    } else if (lightbox && lightbox.classList.contains('active')) {
+      if (e.key === 'ArrowRight') showLightboxAt(activeGalleryIndex + 1);
+      if (e.key === 'ArrowLeft') showLightboxAt(activeGalleryIndex - 1);
     }
   });
 });
