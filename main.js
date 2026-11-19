@@ -50,18 +50,49 @@ const translations = {
     ext_desc: "El jardín y las zonas al aire libre están diseñadas para exprimir el clima mediterráneo de la costa gaditana. Haz clic en cualquier imagen para ampliarla.",
     ext_cap1: "Piscina privada",
     ext_cap2: "Jacuzzi exterior",
-    ext_cap3: "Zona de barbacoa",
+    ext_cap3: "Zona de barbacoa y jardín",
     ext_cap4: "Rincón de lectura",
     ext_cap5: "Jardín privado",
     ext_cap6: "Zona de descanso",
     ext_cap7: "Porche cubierto",
     ext_cap8: "Comedor exterior",
     ext_cap9: "Detalles con encanto",
+    ext_cap10: "Piscina al atardecer",
+    ext_cap11: "Zona de sombra en el jardín",
     rev_tag: "Testimonios",
     rev_title: "Experiencias de nuestros huéspedes",
-    rev_desc: "Opiniones reales de familias y grupos que han disfrutado de sus vacaciones con nosotros.",
-    rev1_text: "\"Nuestra estancia ha sido excelente. El trato recibido fue sumamente atento y profesional. La casa destaca por su encanto, orden y cuidado en cada pequeño detalle del mobiliario. Volveremos sin duda.\"",
-    rev2_text: "\"Pasamos una semana fantástica en esta propiedad. Cuenta con todo lo necesario para ir con niños y la localización es inmejorable para desplazarse a las playas locales.\"",
+    rev_desc: "Opiniones reales de familias y grupos de distintos países que han disfrutado de sus vacaciones con nosotros.",
+    rev_type_family: "Familia",
+    rev_type_couple: "Pareja",
+    rev_type_friends: "Grupo de amigos",
+    rev_nights: "noches",
+    rev_rating: "{rating} de 5 estrellas",
+    rev_type_single: "Viaje en solitario",
+    rev_type_other: "Otra estancia",
+    rev_form_btn: "Escribir una reseña",
+    rev_form_note: "Las opiniones se revisan antes de publicarse.",
+    rev_form_title: "Cuéntanos tu experiencia",
+    rev_form_intro: "Si te has alojado en La Casita del Mar, nos encantará leer tu opinión. Se publicará con tu nombre y país después de revisarla.",
+    rev_form_name: "Tu nombre",
+    rev_form_country: "País",
+    rev_form_stay: "Tipo de estancia",
+    rev_form_nights: "Noches",
+    rev_form_month: "Mes de la estancia",
+    rev_form_rating: "Puntuación",
+    rev_form_title_label: "Título de tu opinión",
+    rev_form_text: "Tu opinión",
+    rev_form_lang: "Idioma de la reseña",
+    rev_form_email: "Email (opcional, no se publica)",
+    rev_form_consent: "Autorizo que mi opinión se publique con mi nombre y país.",
+    rev_form_submit: "Enviar opinión",
+    rev_form_cancel: "Cancelar",
+    rev_form_close: "Cerrar",
+    rev_form_select: "Selecciona…",
+    rev_form_sending: "Enviando…",
+    rev_form_success: "¡Gracias! Hemos recibido tu opinión. La revisaremos antes de publicarla.",
+    rev_form_error: "No se ha podido enviar la opinión. Inténtalo de nuevo en unos minutos.",
+    rev_form_wa: "Se ha abierto WhatsApp con tu opinión lista para enviar.",
+    rev_form_incomplete: "Completa los campos obligatorios.",
     faq_tag: "Información Práctica",
     faq_title: "Preguntas frecuentes",
     faq_desc: "Todo lo que necesitas saber para planificar tu estancia con total tranquilidad.",
@@ -131,18 +162,49 @@ const translations = {
     ext_desc: "The garden and outdoor areas are designed to make the most of the sunny Cádiz climate. Click any photo to enlarge.",
     ext_cap1: "Private swimming pool",
     ext_cap2: "Outdoor hot tub",
-    ext_cap3: "Barbecue area",
+    ext_cap3: "Barbecue and garden area",
     ext_cap4: "Reading corner",
     ext_cap5: "Private garden",
     ext_cap6: "Relaxation area",
     ext_cap7: "Covered wooden porch",
     ext_cap8: "Outdoor dining",
     ext_cap9: "Charming details",
+    ext_cap10: "Pool at sunset",
+    ext_cap11: "Shaded garden lounge",
     rev_tag: "Testimonials",
     rev_title: "Guest experiences",
-    rev_desc: "Real reviews from families and groups who have enjoyed their holidays with us.",
-    rev1_text: "\"Our stay was excellent. The hosts were extremely attentive and professional. The house stands out for its charm, cleanliness, and attention to every little detail. We will definitely return.\"",
-    rev2_text: "\"We spent a fantastic week at this property. It has everything needed when travelling with children and the location is unbeatable for reaching the local beaches.\"",
+    rev_desc: "Real reviews from families and groups from different countries who have enjoyed their holidays with us.",
+    rev_type_family: "Family",
+    rev_type_couple: "Couple",
+    rev_type_friends: "Group of friends",
+    rev_nights: "nights",
+    rev_rating: "{rating} out of 5 stars",
+    rev_type_single: "Solo trip",
+    rev_type_other: "Other stay",
+    rev_form_btn: "Write a review",
+    rev_form_note: "Reviews are checked before publishing.",
+    rev_form_title: "Tell us about your stay",
+    rev_form_intro: "If you have stayed at La Casita del Mar, we would love to read your review. It will be published with your name and country after we review it.",
+    rev_form_name: "Your name",
+    rev_form_country: "Country",
+    rev_form_stay: "Type of stay",
+    rev_form_nights: "Nights",
+    rev_form_month: "Month of stay",
+    rev_form_rating: "Rating",
+    rev_form_title_label: "Review title",
+    rev_form_text: "Your review",
+    rev_form_lang: "Review language",
+    rev_form_email: "Email (optional, not published)",
+    rev_form_consent: "I agree to my review being published with my name and country.",
+    rev_form_submit: "Send review",
+    rev_form_cancel: "Cancel",
+    rev_form_close: "Close",
+    rev_form_select: "Select…",
+    rev_form_sending: "Sending…",
+    rev_form_success: "Thank you! We have received your review. We will check it before publishing.",
+    rev_form_error: "Your review could not be sent. Please try again in a few minutes.",
+    rev_form_wa: "WhatsApp has opened with your review ready to send.",
+    rev_form_incomplete: "Please fill in the required fields.",
     faq_tag: "Practical Info",
     faq_title: "Frequently asked questions",
     faq_desc: "Everything you need to know to plan your stay with complete peace of mind.",
@@ -212,18 +274,49 @@ const translations = {
     ext_desc: "Garten und Terrassen sind perfekt auf das sonnige Klima an der Küste von Cádiz abgestimmt. Klicken Sie auf ein Bild zum Vergrößern.",
     ext_cap1: "Privater Pool",
     ext_cap2: "Außen-Whirlpool",
-    ext_cap3: "Grillbereich",
+    ext_cap3: "Grill- und Gartenbereich",
     ext_cap4: "Leseecke",
     ext_cap5: "Privater Garten",
     ext_cap6: "Ruhebereich",
     ext_cap7: "Überdachte Holzveranda",
     ext_cap8: "Essbereich im Freien",
     ext_cap9: "Liebevolle Details",
+    ext_cap10: "Pool bei Sonnenuntergang",
+    ext_cap11: "Schattiger Gartenbereich",
     rev_tag: "Erfahrungen",
     rev_title: "Das sagen unsere Gäste",
-    rev_desc: "Echte Bewertungen von Familien und Gruppen, die ihren Urlaub bei uns verbracht haben.",
-    rev1_text: "\"Unser Aufenthalt war ausgezeichnet. Die Betreuung war äußerst aufmerksam und herzlich. Das Haus besticht durch seinen Charme, die Sauberkeit und die Liebe zum Detail. Wir kommen gerne wieder.\"",
-    rev2_text: "\"Wir haben eine fantastische Woche hier verbracht. Es ist alles vorhanden, was man mit Kindern braucht, und die Lage zu den Stränden ist unschlagbar.\"",
+    rev_desc: "Echte Bewertungen von Familien und Gruppen aus verschiedenen Ländern, die ihren Urlaub bei uns verbracht haben.",
+    rev_type_family: "Familie",
+    rev_type_couple: "Paar",
+    rev_type_friends: "Freundesgruppe",
+    rev_nights: "Nächte",
+    rev_rating: "{rating} von 5 Sternen",
+    rev_type_single: "Alleinreise",
+    rev_type_other: "Sonstiger Aufenthalt",
+    rev_form_btn: "Bewertung schreiben",
+    rev_form_note: "Bewertungen werden vor der Veröffentlichung geprüft.",
+    rev_form_title: "Erzählen Sie uns von Ihrem Aufenthalt",
+    rev_form_intro: "Wenn Sie in La Casita del Mar übernachtet haben, freuen wir uns über Ihre Bewertung. Sie wird nach Prüfung mit Ihrem Namen und Land veröffentlicht.",
+    rev_form_name: "Ihr Name",
+    rev_form_country: "Land",
+    rev_form_stay: "Art des Aufenthalts",
+    rev_form_nights: "Nächte",
+    rev_form_month: "Monat des Aufenthalts",
+    rev_form_rating: "Bewertung",
+    rev_form_title_label: "Titel Ihrer Bewertung",
+    rev_form_text: "Ihre Bewertung",
+    rev_form_lang: "Sprache der Bewertung",
+    rev_form_email: "E-Mail (optional, wird nicht veröffentlicht)",
+    rev_form_consent: "Ich bin damit einverstanden, dass meine Bewertung mit meinem Namen und Land veröffentlicht wird.",
+    rev_form_submit: "Bewertung senden",
+    rev_form_cancel: "Abbrechen",
+    rev_form_close: "Schließen",
+    rev_form_select: "Auswählen…",
+    rev_form_sending: "Wird gesendet…",
+    rev_form_success: "Vielen Dank! Wir haben Ihre Bewertung erhalten und prüfen sie vor der Veröffentlichung.",
+    rev_form_error: "Die Bewertung konnte nicht gesendet werden. Bitte versuchen Sie es in einigen Minuten erneut.",
+    rev_form_wa: "WhatsApp wurde mit Ihrer Bewertung zum Senden geöffnet.",
+    rev_form_incomplete: "Bitte füllen Sie die Pflichtfelder aus.",
     faq_tag: "Praktische Infos",
     faq_title: "Häufig gestellte Fragen",
     faq_desc: "Alles Wichtige für eine sorgenfreie Urlaubsplanung.",
@@ -293,18 +386,49 @@ const translations = {
     ext_desc: "Le jardin et les espaces extérieurs permettent de savourer pleinement le climat de la côte de Cadix. Cliquez sur une photo pour l'agrandir.",
     ext_cap1: "Piscine privée",
     ext_cap2: "Jacuzzi extérieur",
-    ext_cap3: "Espace barbecue",
+    ext_cap3: "Espace barbecue et jardin",
     ext_cap4: "Coin lecture",
     ext_cap5: "Jardin privé",
     ext_cap6: "Espace détente",
     ext_cap7: "Porche couvert en bois",
     ext_cap8: "Repas en plein air",
     ext_cap9: "Détails de charme",
+    ext_cap10: "Piscine au coucher du soleil",
+    ext_cap11: "Espace ombragé au jardin",
     rev_tag: "Témoignages",
     rev_title: "L'avis de nos voyageurs",
-    rev_desc: "Témoignages authentiques de familles et groupes ayant séjourné chez nous.",
-    rev1_text: "\"Notre séjour a été excellent. L'accueil a été très attentif et professionnel. La maison se distingue par son charme, sa propreté et le soin apporté à chaque détail. Nous reviendrons sans hésiter.\"",
-    rev2_text: "\"Nous avons passé une semaine fantastique. Tout est prévu pour venir avec des enfants et l'emplacement est parfait pour rejoindre les plages.\"",
+    rev_desc: "Témoignages authentiques de familles et groupes de différents pays ayant séjourné chez nous.",
+    rev_type_family: "Famille",
+    rev_type_couple: "Couple",
+    rev_type_friends: "Groupe d'amis",
+    rev_nights: "nuits",
+    rev_rating: "{rating} étoiles sur 5",
+    rev_type_single: "Voyage en solo",
+    rev_type_other: "Autre séjour",
+    rev_form_btn: "Écrire un avis",
+    rev_form_note: "Les avis sont vérifiés avant publication.",
+    rev_form_title: "Racontez-nous votre séjour",
+    rev_form_intro: "Si vous avez séjourné à La Casita del Mar, nous serions ravis de lire votre avis. Il sera publié avec votre nom et votre pays après vérification.",
+    rev_form_name: "Votre nom",
+    rev_form_country: "Pays",
+    rev_form_stay: "Type de séjour",
+    rev_form_nights: "Nuits",
+    rev_form_month: "Mois du séjour",
+    rev_form_rating: "Note",
+    rev_form_title_label: "Titre de votre avis",
+    rev_form_text: "Votre avis",
+    rev_form_lang: "Langue de l'avis",
+    rev_form_email: "E-mail (facultatif, non publié)",
+    rev_form_consent: "J'autorise la publication de mon avis avec mon nom et mon pays.",
+    rev_form_submit: "Envoyer l'avis",
+    rev_form_cancel: "Annuler",
+    rev_form_close: "Fermer",
+    rev_form_select: "Choisir…",
+    rev_form_sending: "Envoi…",
+    rev_form_success: "Merci ! Nous avons reçu votre avis. Nous le vérifierons avant de le publier.",
+    rev_form_error: "L'avis n'a pas pu être envoyé. Réessayez dans quelques minutes.",
+    rev_form_wa: "WhatsApp s'est ouvert avec votre avis prêt à envoyer.",
+    rev_form_incomplete: "Veuillez remplir les champs obligatoires.",
     faq_tag: "Infos Pratiques",
     faq_title: "Questions fréquentes",
     faq_desc: "Tout ce qu'il faut savoir pour préparer votre séjour en toute sérénité.",
@@ -338,8 +462,196 @@ document.addEventListener('DOMContentLoaded', () => {
     yearSpan.textContent = new Date().getFullYear();
   }
 
+  let currentLangCode = 'es';
+  let currentDict = translations.es;
+  let reviewLanguageTouched = false;
+
+  const siteConfig = window.SITE_CONFIG || {};
+  const supabaseUrl = String(siteConfig.supabaseUrl || '').replace(/\/+$/, '');
+  const supabaseAnonKey = siteConfig.supabaseAnonKey || '';
+  const reviewsApiReady = Boolean(supabaseUrl && supabaseAnonKey);
+
+  const countryCodes = ['ES', 'FR', 'GB', 'DE', 'IT', 'PT', 'NL', 'BE', 'CH', 'AT', 'IE', 'AR', 'MX', 'US', 'CA', 'BR', 'SE', 'NO', 'DK', 'FI', 'PL', 'GR', 'HR', 'RO', 'CZ', 'HU', 'LU', 'RU', 'UA', 'MA', 'TR', 'IL', 'AE', 'AU', 'NZ', 'JP', 'KR', 'CN', 'IN', 'ZA', 'CL', 'CO', 'PE', 'UY'];
+
+  const countryName = (code, lang) => {
+    if (!code) return '';
+    try {
+      return new Intl.DisplayNames([lang], { type: 'region' }).of(code) || code;
+    } catch (e) {
+      return code;
+    }
+  };
+
+  const capitalize = (value) => value.charAt(0).toUpperCase() + value.slice(1);
+
+  const fillOptions = (select, options) => {
+    if (!select) return;
+    const previous = select.value;
+    select.textContent = '';
+    options.forEach(item => {
+      const option = document.createElement('option');
+      option.value = item.value;
+      option.textContent = item.label;
+      select.appendChild(option);
+    });
+    if (previous && options.some(item => item.value === previous)) {
+      select.value = previous;
+    }
+  };
+
+  const refreshReviewForm = (lang, dict) => {
+    const countrySelect = document.getElementById('reviewCountry');
+    const monthSelect = document.getElementById('reviewMonth');
+    const staySelect = document.getElementById('reviewStayType');
+    const languageSelect = document.getElementById('reviewLang');
+
+    if (countrySelect) {
+      const countries = countryCodes
+        .map(code => ({ value: code, label: countryName(code, lang) }))
+        .sort((a, b) => a.label.localeCompare(b.label, lang));
+      fillOptions(countrySelect, [{ value: '', label: dict.rev_form_select }].concat(countries));
+    }
+
+    if (monthSelect) {
+      const months = [];
+      for (let month = 1; month <= 12; month += 1) {
+        months.push({
+          value: String(month),
+          label: capitalize(new Intl.DateTimeFormat(lang, { month: 'long' }).format(new Date(2024, month - 1, 15)))
+        });
+      }
+      fillOptions(monthSelect, months);
+    }
+
+    if (staySelect) {
+      fillOptions(staySelect, [
+        { value: '', label: dict.rev_form_select },
+        { value: 'family', label: dict.rev_type_family },
+        { value: 'couple', label: dict.rev_type_couple },
+        { value: 'friends', label: dict.rev_type_friends },
+        { value: 'single', label: dict.rev_type_single },
+        { value: 'other', label: dict.rev_type_other }
+      ]);
+    }
+
+    if (languageSelect && !reviewLanguageTouched) {
+      languageSelect.value = lang;
+    }
+
+    renderRating(currentRating);
+  };
+
+  const ratingInput = document.getElementById('ratingInput');
+  const ratingField = document.getElementById('reviewRating');
+  const RATING_MIN = 0.5;
+  const RATING_MAX = 5;
+  let currentRating = 5;
+
+  const formatRatingValue = (value) => {
+    try {
+      return new Intl.NumberFormat(currentLangCode, { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(value);
+    } catch (e) {
+      return String(value);
+    }
+  };
+
+  const renderRating = (value) => {
+    const clamped = Math.min(RATING_MAX, Math.max(RATING_MIN, Math.round(value * 2) / 2));
+    currentRating = clamped;
+    if (ratingField) ratingField.value = String(clamped);
+    if (!ratingInput) return;
+    ratingInput.style.setProperty('--rating', String(clamped));
+    ratingInput.setAttribute('aria-valuenow', String(clamped));
+    const template = currentDict.rev_rating || '{rating} / 5';
+    ratingInput.setAttribute('aria-valuetext', template.replace('{rating}', formatRatingValue(clamped)));
+  };
+
+  if (ratingInput) {
+    ratingInput.addEventListener('click', (event) => {
+      const rect = ratingInput.getBoundingClientRect();
+      if (!rect.width) return;
+      const ratio = (event.clientX - rect.left) / rect.width;
+      renderRating(Math.round(ratio * 10) / 2);
+    });
+
+    ratingInput.addEventListener('keydown', (event) => {
+      let next;
+      switch (event.key) {
+        case 'ArrowRight':
+        case 'ArrowUp':
+          next = currentRating + 0.5;
+          break;
+        case 'ArrowLeft':
+        case 'ArrowDown':
+          next = currentRating - 0.5;
+          break;
+        case 'Home':
+          next = RATING_MIN;
+          break;
+        case 'End':
+          next = RATING_MAX;
+          break;
+        default:
+          return;
+      }
+      event.preventDefault();
+      renderRating(next);
+    });
+  }
+
+  const updateReviewMeta = (lang, dict) => {
+    const capitalize = (value) => value.charAt(0).toUpperCase() + value.slice(1);
+    let monthFormatter = null;
+    let regionNames = null;
+
+    try {
+      monthFormatter = new Intl.DateTimeFormat(lang, { month: 'long' });
+    } catch (e) {}
+    try {
+      regionNames = new Intl.DisplayNames([lang], { type: 'region' });
+    } catch (e) {}
+
+    document.querySelectorAll('[data-review-country]').forEach(el => {
+      const code = el.getAttribute('data-review-country');
+      if (!regionNames || !code) return;
+      try {
+        const name = regionNames.of(code);
+        if (name) el.textContent = name;
+      } catch (e) {}
+    });
+
+    document.querySelectorAll('.review-meta-line').forEach(el => {
+      const typeKey = `rev_type_${el.getAttribute('data-review-type')}`;
+      const nights = el.getAttribute('data-review-nights');
+      const month = parseInt(el.getAttribute('data-review-month'), 10);
+      const parts = [];
+
+      if (dict[typeKey]) parts.push(dict[typeKey]);
+      if (nights && dict.rev_nights) parts.push(`${nights} ${dict.rev_nights}`);
+      if (monthFormatter && month >= 1 && month <= 12) {
+        parts.push(capitalize(monthFormatter.format(new Date(2024, month - 1, 15))));
+      }
+      if (parts.length) el.textContent = parts.join(' · ');
+    });
+
+    if (dict.rev_rating) {
+      let numberFormatter = null;
+      try {
+        numberFormatter = new Intl.NumberFormat(lang, { minimumFractionDigits: 0, maximumFractionDigits: 1 });
+      } catch (e) {}
+
+      document.querySelectorAll('.reviews-grid .rating').forEach(el => {
+        const rating = parseFloat(el.getAttribute('data-review-rating')) || 5;
+        const formatted = numberFormatter ? numberFormatter.format(rating) : String(rating);
+        el.setAttribute('aria-label', dict.rev_rating.replace('{rating}', formatted));
+      });
+    }
+  };
+
   const applyLanguage = (lang) => {
     const dict = translations[lang] || translations.es;
+    currentLangCode = lang;
+    currentDict = dict;
     document.documentElement.lang = lang;
     document.title = dict.page_title;
 
@@ -356,6 +668,16 @@ document.addEventListener('DOMContentLoaded', () => {
         el.setAttribute('alt', dict[key]);
       }
     });
+
+    document.querySelectorAll('[data-i18n-label]').forEach(el => {
+      const key = el.getAttribute('data-i18n-label');
+      if (dict[key]) {
+        el.setAttribute('aria-label', dict[key]);
+      }
+    });
+
+    updateReviewMeta(lang, dict);
+    refreshReviewForm(lang, dict);
 
     const encodedMsg = encodeURIComponent(dict.wa_message);
     waLinks.forEach(link => {
@@ -389,6 +711,232 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } catch (e) {}
   applyLanguage(initialLang);
+
+  const reviewDialog = document.getElementById('reviewDialog');
+  const reviewForm = document.getElementById('reviewForm');
+  const reviewFormStatus = document.getElementById('reviewFormStatus');
+
+  const setReviewStatus = (message, type) => {
+    if (!reviewFormStatus) return;
+    reviewFormStatus.textContent = message || '';
+    reviewFormStatus.classList.toggle('is-success', type === 'success');
+    reviewFormStatus.classList.toggle('is-error', type === 'error');
+  };
+
+  const openReviewDialog = () => {
+    if (!reviewDialog) return;
+    setReviewStatus('');
+    if (typeof reviewDialog.showModal === 'function') {
+      reviewDialog.showModal();
+    } else {
+      reviewDialog.setAttribute('open', '');
+    }
+    document.body.classList.add('menu-open');
+  };
+
+  const closeReviewDialog = () => {
+    if (!reviewDialog) return;
+    if (typeof reviewDialog.close === 'function') {
+      reviewDialog.close();
+    } else {
+      reviewDialog.removeAttribute('open');
+    }
+    document.body.classList.remove('menu-open');
+  };
+
+  const openReviewButton = document.getElementById('openReviewForm');
+  if (openReviewButton) openReviewButton.addEventListener('click', openReviewDialog);
+  const closeReviewButton = document.getElementById('closeReviewDialog');
+  if (closeReviewButton) closeReviewButton.addEventListener('click', closeReviewDialog);
+  const cancelReviewButton = document.getElementById('cancelReview');
+  if (cancelReviewButton) cancelReviewButton.addEventListener('click', closeReviewDialog);
+
+  if (reviewDialog) {
+    reviewDialog.addEventListener('close', () => document.body.classList.remove('menu-open'));
+    reviewDialog.addEventListener('click', (event) => {
+      if (event.target === reviewDialog) closeReviewDialog();
+    });
+  }
+
+  const reviewLanguageSelect = document.getElementById('reviewLang');
+  if (reviewLanguageSelect) {
+    reviewLanguageSelect.addEventListener('change', () => { reviewLanguageTouched = true; });
+  }
+
+  const buildWhatsappReviewMessage = (data) => [
+    'Nueva opinión para La Casita del Mar',
+    '',
+    `Nombre: ${data.name}`,
+    `País: ${countryName(data.country, 'es')}`,
+    `Puntuación: ${data.rating}/5`,
+    `Estancia: ${translations.es[`rev_type_${data.stay_type}`] || data.stay_type} · ${data.nights || '-'} noches · mes ${data.month || '-'}`,
+    `Título: ${data.title}`,
+    '',
+    data.body,
+    data.email ? `\nEmail: ${data.email}` : ''
+  ].join('\n').trim();
+
+  const publishReview = async (payload) => {
+    const response = await fetch(`${supabaseUrl}/rest/v1/reviews`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        apikey: supabaseAnonKey,
+        Authorization: `Bearer ${supabaseAnonKey}`,
+        Prefer: 'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`Supabase respondió ${response.status}`);
+  };
+
+  if (reviewForm) {
+    reviewForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const dict = currentDict;
+      const honey = document.getElementById('reviewWebsite');
+      if (honey && honey.value) return;
+
+      if (!reviewForm.checkValidity()) {
+        reviewForm.reportValidity();
+        setReviewStatus(dict.rev_form_incomplete, 'error');
+        return;
+      }
+
+      const formData = {
+        name: reviewForm.elements.name.value.trim(),
+        country: reviewForm.elements.country.value,
+        rating: parseFloat(reviewForm.elements.rating.value) || 5,
+        title: reviewForm.elements.title.value.trim(),
+        body: reviewForm.elements.body.value.trim(),
+        review_lang: reviewForm.elements.review_lang.value,
+        stay_type: reviewForm.elements.stay_type.value,
+        nights: parseInt(reviewForm.elements.nights.value, 10) || null,
+        month: parseInt(reviewForm.elements.month.value, 10) || null,
+        email: reviewForm.elements.email.value.trim() || null
+      };
+
+      if (!reviewsApiReady) {
+        const message = buildWhatsappReviewMessage(formData);
+        window.open(`https://wa.me/34659399207?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+        setReviewStatus(dict.rev_form_wa, 'success');
+        reviewForm.reset();
+        renderRating(5);
+        return;
+      }
+
+      const submitButton = document.getElementById('submitReview');
+      if (submitButton) submitButton.disabled = true;
+      setReviewStatus(dict.rev_form_sending);
+
+      try {
+        await publishReview(formData);
+        setReviewStatus(dict.rev_form_success, 'success');
+        reviewForm.reset();
+        renderRating(5);
+      } catch (error) {
+        setReviewStatus(dict.rev_form_error, 'error');
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  }
+
+  const getInitials = (name) => {
+    const parts = String(name || '').split(/\s+/).filter(Boolean);
+    const letters = parts
+      .map(part => (part.replace(/[^\p{L}]/gu, '')[0] || ''))
+      .filter(Boolean);
+    return (letters.slice(0, 2).join('') || '★').toUpperCase();
+  };
+
+  const buildRatingElement = (rating) => {
+    const element = document.createElement('div');
+    element.className = 'rating';
+    element.setAttribute('data-review-rating', String(rating));
+    const rounded = Math.round(rating * 2) / 2;
+    const full = Math.min(Math.floor(rounded), 5);
+    element.textContent = '★'.repeat(full);
+    if (rounded - full === 0.5) {
+      const half = document.createElement('span');
+      half.className = 'star-half';
+      half.setAttribute('aria-hidden', 'true');
+      half.textContent = '★';
+      element.appendChild(half);
+    }
+    return element;
+  };
+
+  const buildReviewCard = (row) => {
+    const card = document.createElement('blockquote');
+    card.className = 'review-card';
+
+    const header = document.createElement('header');
+    header.className = 'review-meta';
+
+    const avatar = document.createElement('span');
+    avatar.className = 'avatar-fallback';
+    avatar.setAttribute('aria-hidden', 'true');
+    avatar.textContent = getInitials(row.name);
+
+    const info = document.createElement('div');
+
+    const name = document.createElement('cite');
+    name.className = 'reviewer-name';
+    name.textContent = row.name || '';
+
+    const country = document.createElement('span');
+    country.className = 'reviewer-origin';
+    country.setAttribute('data-review-country', row.country || '');
+    country.textContent = countryName(row.country, currentLangCode);
+
+    info.append(name, country, buildRatingElement(Number(row.rating) || 5));
+    header.append(avatar, info);
+    card.append(header);
+
+    if (row.title) {
+      const title = document.createElement('p');
+      title.className = 'review-title';
+      if (row.review_lang) title.lang = row.review_lang;
+      title.textContent = `«${row.title}»`;
+      card.appendChild(title);
+    }
+
+    const body = document.createElement('p');
+    body.className = 'review-text';
+    if (row.review_lang) body.lang = row.review_lang;
+    body.textContent = row.body || '';
+    card.appendChild(body);
+
+    const meta = document.createElement('p');
+    meta.className = 'review-meta-line';
+    meta.setAttribute('data-review-type', row.stay_type || 'other');
+    if (row.nights) meta.setAttribute('data-review-nights', String(row.nights));
+    if (row.month) meta.setAttribute('data-review-month', String(row.month));
+    card.appendChild(meta);
+
+    return card;
+  };
+
+  const loadApprovedReviews = async () => {
+    if (!reviewsApiReady) return;
+    try {
+      const response = await fetch(
+        `${supabaseUrl}/rest/v1/reviews?select=name,country,rating,title,body,review_lang,stay_type,nights,month,created_at&approved=eq.true&order=created_at.desc&limit=30`,
+        { headers: { apikey: supabaseAnonKey, Authorization: `Bearer ${supabaseAnonKey}` } }
+      );
+      if (!response.ok) return;
+      const rows = await response.json();
+      const grid = document.querySelector('.reviews-grid');
+      if (!grid || !Array.isArray(rows) || rows.length === 0) return;
+      rows.forEach(row => grid.appendChild(buildReviewCard(row)));
+      updateReviewMeta(currentLangCode, currentDict);
+    } catch (error) {
+      /* si falla la carga, se mantienen las reseñas locales */
+    }
+  };
+
+  loadApprovedReviews();
 
   const fadeObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {

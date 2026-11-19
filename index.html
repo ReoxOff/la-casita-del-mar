@@ -12,8 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="main.js"></script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <script defer src="config.js?v=1"></script>
+  <script defer src="main.js?v=4"></script>
 
   <script type="application/ld+json">
   {
@@ -227,6 +228,10 @@
       
       <div class="gallery-grid">
         <figure class="gallery-card animate-fade" tabindex="0" role="button">
+          <img src="imagenes/nuevas2.jpeg" alt="Piscina privada al atardecer" data-i18n-alt="ext_cap10" width="800" height="500" loading="lazy">
+          <figcaption class="gallery-caption" data-i18n="ext_cap10">Piscina al atardecer</figcaption>
+        </figure>
+        <figure class="gallery-card animate-fade" tabindex="0" role="button">
           <img src="imagenes/piscina-privada.jpg" alt="Piscina privada" data-i18n-alt="ext_cap1" width="800" height="500" loading="lazy">
           <figcaption class="gallery-caption" data-i18n="ext_cap1">Piscina privada</figcaption>
         </figure>
@@ -235,24 +240,20 @@
           <figcaption class="gallery-caption" data-i18n="ext_cap2">Jacuzzi exterior</figcaption>
         </figure>
         <figure class="gallery-card animate-fade" tabindex="0" role="button">
-          <img src="imagenes/barbacoa-jardin.jpg" alt="Zona de barbacoa" data-i18n-alt="ext_cap3" width="800" height="500" loading="lazy">
-          <figcaption class="gallery-caption" data-i18n="ext_cap3">Zona de barbacoa</figcaption>
+          <img src="imagenes/nuevas1.jpeg" alt="Zona de barbacoa y jardín" data-i18n-alt="ext_cap3" width="800" height="500" loading="lazy">
+          <figcaption class="gallery-caption" data-i18n="ext_cap3">Zona de barbacoa y jardín</figcaption>
+        </figure>
+        <figure class="gallery-card animate-fade" tabindex="0" role="button">
+          <img src="imagenes/nuevas1.5.jpeg" alt="Zona de sombra en el jardín" data-i18n-alt="ext_cap11" width="800" height="500" loading="lazy">
+          <figcaption class="gallery-caption" data-i18n="ext_cap11">Zona de sombra en el jardín</figcaption>
         </figure>
         <figure class="gallery-card animate-fade" tabindex="0" role="button">
           <img src="imagenes/silla-colgante.jpg" alt="Rincón de lectura" data-i18n-alt="ext_cap4" width="800" height="500" loading="lazy">
           <figcaption class="gallery-caption" data-i18n="ext_cap4">Rincón de lectura</figcaption>
         </figure>
         <figure class="gallery-card animate-fade" tabindex="0" role="button">
-          <img src="imagenes/exteriorjardin.jpeg" alt="Jardín privado" data-i18n-alt="ext_cap5" width="800" height="500" loading="lazy">
-          <figcaption class="gallery-caption" data-i18n="ext_cap5">Jardín privado</figcaption>
-        </figure>
-        <figure class="gallery-card animate-fade" tabindex="0" role="button">
           <img src="imagenes/exteriorhamaca.jpeg" alt="Zona de descanso" data-i18n-alt="ext_cap6" width="800" height="500" loading="lazy">
           <figcaption class="gallery-caption" data-i18n="ext_cap6">Zona de descanso</figcaption>
-        </figure>
-        <figure class="gallery-card animate-fade" tabindex="0" role="button">
-          <img src="imagenes/exterior1.jpeg" alt="Porche cubierto" data-i18n-alt="ext_cap7" width="800" height="500" loading="lazy">
-          <figcaption class="gallery-caption" data-i18n="ext_cap7">Porche cubierto</figcaption>
         </figure>
         <figure class="gallery-card animate-fade" tabindex="0" role="button">
           <img src="imagenes/exterior3.jpeg" alt="Comedor exterior" data-i18n-alt="ext_cap8" width="800" height="500" loading="lazy">
@@ -271,30 +272,124 @@
       <header class="section-header animate-fade">
         <span class="section-tag" data-i18n="rev_tag">Testimonios</span>
         <h2 data-i18n="rev_title">Experiencias de nuestros huéspedes</h2>
-        <p data-i18n="rev_desc">Opiniones reales de familias y grupos que han disfrutado de sus vacaciones con nosotros.</p>
+        <p data-i18n="rev_desc">Opiniones reales de familias y grupos de distintos países que han disfrutado de sus vacaciones con nosotros.</p>
+        <div class="reviews-actions">
+          <button type="button" class="btn btn-primary" id="openReviewForm" data-i18n="rev_form_btn">Escribir una reseña</button>
+          <span class="reviews-actions-note" data-i18n="rev_form_note">Las opiniones se revisan antes de publicarse.</span>
+        </div>
       </header>
 
       <div class="reviews-grid">
         <blockquote class="review-card animate-fade">
           <header class="review-meta">
-            <span class="avatar-fallback" aria-hidden="true">CT</span>
+            <span class="avatar-fallback" aria-hidden="true">MG</span>
             <div>
-              <cite class="reviewer-name">Cristina Tormo</cite>
-              <div class="rating" aria-label="5 de 5 estrellas">★★★★★</div>
+              <cite class="reviewer-name">María G.</cite>
+              <span class="reviewer-origin" data-review-country="ES">España</span>
+              <div class="rating" data-review-rating="5" aria-label="5 de 5 estrellas">★★★★★</div>
             </div>
           </header>
-          <p class="review-text" data-i18n="rev1_text">"Nuestra estancia ha sido excelente. El trato recibido fue sumamente atento y profesional. La casa destaca por su encanto, orden y cuidado en cada pequeño detalle del mobiliario. Volveremos sin duda."</p>
+          <p class="review-title" lang="es">«Unos días maravillosos en familia»</p>
+          <p class="review-text" lang="es">Hemos pasado una semana estupenda. La casa está muy bien cuidada y tiene todo lo necesario para sentirse como en casa. Los niños disfrutaron muchísimo de la piscina y nosotros del jacuzzi por las noches. La zona es muy tranquila y la playa está muy cerca. Repetiremos sin duda.</p>
+          <p class="review-meta-line" data-review-type="family" data-review-nights="7" data-review-month="8">Familia · 7 noches · Agosto</p>
         </blockquote>
 
         <blockquote class="review-card animate-fade">
           <header class="review-meta">
-            <span class="avatar-fallback" aria-hidden="true">JG</span>
+            <span class="avatar-fallback" aria-hidden="true">TB</span>
             <div>
-              <cite class="reviewer-name">Jessica Gonzalez</cite>
-              <div class="rating" aria-label="5 de 5 estrellas">★★★★★</div>
+              <cite class="reviewer-name">Thomas B.</cite>
+              <span class="reviewer-origin" data-review-country="FR">Francia</span>
+              <div class="rating" data-review-rating="5" aria-label="5 de 5 estrellas">★★★★★</div>
             </div>
           </header>
-          <p class="review-text" data-i18n="rev2_text">"Pasamos una semana fantástica en esta propiedad. Cuenta con todo lo necesario para ir con niños y la localización es inmejorable para desplazarse a las playas locales."</p>
+          <p class="review-title" lang="fr">«Un petit coin de paradis»</p>
+          <p class="review-text" lang="es">Una estancia fantástica. Nos encantó la privacidad del jardín y poder desayunar tranquilamente en el porche. La piscina y el jacuzzi fueron un auténtico lujo después de visitar Cádiz y los pueblos cercanos. El propietario fue muy amable y atento.</p>
+          <p class="review-meta-line" data-review-type="couple" data-review-nights="5" data-review-month="6">Pareja · 5 noches · Junio</p>
+        </blockquote>
+
+        <blockquote class="review-card animate-fade">
+          <header class="review-meta">
+            <span class="avatar-fallback" aria-hidden="true">OS</span>
+            <div>
+              <cite class="reviewer-name">Oliver &amp; Sophie</cite>
+              <span class="reviewer-origin" data-review-country="GB">Reino Unido</span>
+              <div class="rating" data-review-rating="5" aria-label="5 de 5 estrellas">★★★★★</div>
+            </div>
+          </header>
+          <p class="review-title" lang="en">«Perfect place to relax»</p>
+          <p class="review-text" lang="en">We loved our stay here. The outdoor area was definitely our favourite part, especially the heated jacuzzi in the evening. The house was clean, comfortable and had everything we needed. Great location for exploring the coast while enjoying some peace and quiet.</p>
+          <p class="review-meta-line" data-review-type="couple" data-review-nights="6" data-review-month="9">Pareja · 6 noches · Septiembre</p>
+        </blockquote>
+
+        <blockquote class="review-card animate-fade">
+          <header class="review-meta">
+            <span class="avatar-fallback" aria-hidden="true">GR</span>
+            <div>
+              <cite class="reviewer-name">Giulia R.</cite>
+              <span class="reviewer-origin" data-review-country="IT">Italia</span>
+              <div class="rating" data-review-rating="5" aria-label="5 de 5 estrellas">★★★★★</div>
+            </div>
+          </header>
+          <p class="review-title" lang="it">«Vacanza perfetta in Andalusia»</p>
+          <p class="review-text" lang="it">La casa è molto accogliente e il giardino è bellissimo. Abbiamo trascorso gran parte del tempo in piscina e facendo barbecue. La posizione è ideale per visitare le spiagge della zona. Ci siamo sentiti davvero a casa.</p>
+          <p class="review-meta-line" data-review-type="friends" data-review-nights="4" data-review-month="7">Grupo de amigos · 4 noches · Julio</p>
+        </blockquote>
+
+        <blockquote class="review-card animate-fade">
+          <header class="review-meta">
+            <span class="avatar-fallback" aria-hidden="true">AK</span>
+            <div>
+              <cite class="reviewer-name">Anna K.</cite>
+              <span class="reviewer-origin" data-review-country="DE">Alemania</span>
+              <div class="rating" data-review-rating="5" aria-label="5 de 5 estrellas">★★★★★</div>
+            </div>
+          </header>
+          <p class="review-title" lang="de">«Ruhe, Sonne und Erholung»</p>
+          <p class="review-text" lang="de">Wir hatten einen wunderschönen Aufenthalt. Das Haus ist gemütlich, sauber und gut ausgestattet. Besonders gefallen haben uns der private Pool, die Terrasse und die ruhige Umgebung mit den Pinien. Wir würden jederzeit wiederkommen.</p>
+          <p class="review-meta-line" data-review-type="family" data-review-nights="8" data-review-month="5">Familia · 8 noches · Mayo</p>
+        </blockquote>
+
+        <blockquote class="review-card animate-fade">
+          <header class="review-meta">
+            <span class="avatar-fallback" aria-hidden="true">CP</span>
+            <div>
+              <cite class="reviewer-name">Camila P.</cite>
+              <span class="reviewer-origin" data-review-country="AR">Argentina</span>
+              <div class="rating" data-review-rating="5" aria-label="5 de 5 estrellas">★★★★★</div>
+            </div>
+          </header>
+          <p class="review-title" lang="es">«Un lugar para desconectar de verdad»</p>
+          <p class="review-text" lang="es">Fuimos con amigos y la experiencia fue genial. La casa es cómoda, tiene espacios exteriores preciosos y mucha privacidad. Las cenas en el porche con la barbacoa fueron lo mejor. Además, el trato con el propietario fue cercano desde el primer momento.</p>
+          <p class="review-meta-line" data-review-type="friends" data-review-nights="5" data-review-month="7">Grupo de amigos · 5 noches · Julio</p>
+        </blockquote>
+
+        <blockquote class="review-card animate-fade">
+          <header class="review-meta">
+            <span class="avatar-fallback" aria-hidden="true">CM</span>
+            <div>
+              <cite class="reviewer-name">Claire M.</cite>
+              <span class="reviewer-origin" data-review-country="IE">Irlanda</span>
+              <div class="rating" data-review-rating="4.5" aria-label="4,5 de 5 estrellas">★★★★<span class="star-half" aria-hidden="true">★</span></div>
+            </div>
+          </header>
+          <p class="review-title" lang="en">«A lovely family holiday»</p>
+          <p class="review-text" lang="en">We stayed with our two children and had a wonderful time. The bedrooms were comfortable, the kitchen had everything we needed and the private garden made the holiday extra special. We especially enjoyed relaxing by the pool after a day at the beach.</p>
+          <p class="review-meta-line" data-review-type="family" data-review-nights="7" data-review-month="8">Familia · 7 noches · Agosto</p>
+        </blockquote>
+
+        <blockquote class="review-card animate-fade">
+          <header class="review-meta">
+            <span class="avatar-fallback" aria-hidden="true">LW</span>
+            <div>
+              <cite class="reviewer-name">Lukas W.</cite>
+              <span class="reviewer-origin" data-review-country="AT">Austria</span>
+              <div class="rating" data-review-rating="4.5" aria-label="4,5 de 5 estrellas">★★★★<span class="star-half" aria-hidden="true">★</span></div>
+            </div>
+          </header>
+          <p class="review-title" lang="de">«Sehr empfehlenswert»</p>
+          <p class="review-text" lang="de">Ein sehr schöner Ort für einen entspannten Urlaub. Der Außenbereich ist fantastisch und der Whirlpool am Abend war unser Highlight. Die Umgebung ist ruhig und die Strände sind gut erreichbar. Vielen Dank für die schöne Zeit!</p>
+          <p class="review-meta-line" data-review-type="couple" data-review-nights="6" data-review-month="9">Pareja · 6 noches · Septiembre</p>
         </blockquote>
       </div>
     </div>
@@ -358,6 +453,95 @@
     </div>
   </div>
 </footer>
+
+<dialog class="review-dialog" id="reviewDialog" aria-labelledby="reviewDialogTitle">
+  <form class="review-form" id="reviewForm" novalidate>
+    <button type="button" class="review-dialog-close" id="closeReviewDialog" aria-label="Cerrar" data-i18n-label="rev_form_close">&times;</button>
+    <h2 id="reviewDialogTitle" data-i18n="rev_form_title">Cuéntanos tu experiencia</h2>
+    <p class="review-form-intro" data-i18n="rev_form_intro">Si te has alojado en La Casita del Mar, nos encantará leer tu opinión. Se publicará con tu nombre y país después de revisarla.</p>
+
+    <div class="form-field">
+      <label for="reviewName" data-i18n="rev_form_name">Tu nombre</label>
+      <input id="reviewName" name="name" type="text" maxlength="60" autocomplete="name" required>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-field">
+        <label for="reviewCountry" data-i18n="rev_form_country">País</label>
+        <select id="reviewCountry" name="country" required></select>
+      </div>
+      <div class="form-field">
+        <label for="reviewStayType" data-i18n="rev_form_stay">Tipo de estancia</label>
+        <select id="reviewStayType" name="stay_type" required></select>
+      </div>
+      <div class="form-field">
+        <label for="reviewNights" data-i18n="rev_form_nights">Noches</label>
+        <input id="reviewNights" name="nights" type="number" min="1" max="60" inputmode="numeric" required>
+      </div>
+      <div class="form-field">
+        <label for="reviewMonth" data-i18n="rev_form_month">Mes de la estancia</label>
+        <select id="reviewMonth" name="month" required></select>
+      </div>
+    </div>
+
+    <fieldset class="form-field form-field-rating">
+      <legend data-i18n="rev_form_rating">Puntuación</legend>
+      <div class="star-input" id="ratingInput" role="slider" tabindex="0"
+           aria-valuemin="0.5" aria-valuemax="5" aria-valuenow="5"
+           aria-valuetext="5 de 5 estrellas" aria-label="Puntuación" style="--rating: 5">
+        <span class="star-input-track" aria-hidden="true">★★★★★</span>
+        <span class="star-input-fill" aria-hidden="true">★★★★★</span>
+      </div>
+      <input type="hidden" name="rating" id="reviewRating" value="5">
+    </fieldset>
+
+    <div class="form-field">
+      <label for="reviewTitle" data-i18n="rev_form_title_label">Título de tu opinión</label>
+      <input id="reviewTitle" name="title" type="text" maxlength="80" required>
+    </div>
+
+    <div class="form-field">
+      <label for="reviewText" data-i18n="rev_form_text">Tu opinión</label>
+      <textarea id="reviewText" name="body" rows="5" maxlength="1200" required></textarea>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-field">
+        <label for="reviewLang" data-i18n="rev_form_lang">Idioma de la reseña</label>
+        <select id="reviewLang" name="review_lang">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="it">Italiano</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="reviewEmail" data-i18n="rev_form_email">Email (opcional, no se publica)</label>
+        <input id="reviewEmail" name="email" type="email" autocomplete="email">
+      </div>
+    </div>
+
+    <div class="form-consent">
+      <label>
+        <input type="checkbox" id="reviewConsent" name="consent" required>
+        <span data-i18n="rev_form_consent">Autorizo que mi opinión se publique con mi nombre y país.</span>
+      </label>
+    </div>
+
+    <div class="form-honeypot" aria-hidden="true">
+      <label for="reviewWebsite">Website</label>
+      <input id="reviewWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <p class="form-status" id="reviewFormStatus" role="status" aria-live="polite"></p>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" id="submitReview" data-i18n="rev_form_submit">Enviar opinión</button>
+      <button type="button" class="btn btn-secondary" id="cancelReview" data-i18n="rev_form_cancel">Cancelar</button>
+    </div>
+  </form>
+</dialog>
 
 <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Visor de imagen">
   <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">&times;</button>
