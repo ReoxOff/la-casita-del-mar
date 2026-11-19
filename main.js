@@ -541,8 +541,9 @@ document.addEventListener('DOMContentLoaded', () => {
     renderRating(currentRating);
   };
 
-  const ratingInput = document.getElementById('ratingInput');
-  const ratingField = document.getElementById('reviewRating');
+  const ratingRange = document.getElementById('ratingRange');
+  const ratingStars = document.getElementById('ratingStars');
+  const ratingValue = document.getElementById('ratingValue');
   const RATING_MIN = 0.5;
   const RATING_MAX = 5;
   let currentRating = 5;
@@ -558,44 +559,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderRating = (value) => {
     const clamped = Math.min(RATING_MAX, Math.max(RATING_MIN, Math.round(value * 2) / 2));
     currentRating = clamped;
-    if (ratingField) ratingField.value = String(clamped);
-    if (!ratingInput) return;
-    ratingInput.style.setProperty('--rating', String(clamped));
-    ratingInput.setAttribute('aria-valuenow', String(clamped));
-    const template = currentDict.rev_rating || '{rating} / 5';
-    ratingInput.setAttribute('aria-valuetext', template.replace('{rating}', formatRatingValue(clamped)));
+
+    if (ratingRange) {
+      ratingRange.value = String(clamped);
+      ratingRange.style.setProperty('--rating', String(clamped));
+      const template = currentDict.rev_rating || '{rating} / 5';
+      ratingRange.setAttribute('aria-valuetext', template.replace('{rating}', formatRatingValue(clamped)));
+    }
+
+    if (ratingStars) {
+      ratingStars.style.setProperty('--rating', String(clamped));
+    }
+
+    if (ratingValue) {
+      ratingValue.textContent = `${formatRatingValue(clamped)}/5`;
+    }
   };
 
-  if (ratingInput) {
-    ratingInput.addEventListener('click', (event) => {
-      const rect = ratingInput.getBoundingClientRect();
-      if (!rect.width) return;
-      const ratio = (event.clientX - rect.left) / rect.width;
-      renderRating(Math.round(ratio * 10) / 2);
-    });
-
-    ratingInput.addEventListener('keydown', (event) => {
-      let next;
-      switch (event.key) {
-        case 'ArrowRight':
-        case 'ArrowUp':
-          next = currentRating + 0.5;
-          break;
-        case 'ArrowLeft':
-        case 'ArrowDown':
-          next = currentRating - 0.5;
-          break;
-        case 'Home':
-          next = RATING_MIN;
-          break;
-        case 'End':
-          next = RATING_MAX;
-          break;
-        default:
-          return;
-      }
-      event.preventDefault();
-      renderRating(next);
+  if (ratingRange) {
+    ratingRange.addEventListener('input', () => {
+      renderRating(parseFloat(ratingRange.value));
     });
   }
 
